@@ -1,9 +1,9 @@
-# ez recur prac
 def countdown(num: int):
-    print(num)
+    # id base case and recursive case
     if num <= 0:
         return
     else:
+        print(num)
         countdown(num-1)
 
 countdown(5)
