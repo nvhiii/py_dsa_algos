@@ -42,7 +42,7 @@ def search_phonebook(pb: list, nm: str):
 
 def main():
     name = input("Please enter a name to fetch their number(s): ")
-    result = search_phonebook(phonebook, name)
+    result = search_phonebook(phonebook, name) # returns list or none
     if result is not None:
         print(f"Numbers for {name}: {result}")
     else:
