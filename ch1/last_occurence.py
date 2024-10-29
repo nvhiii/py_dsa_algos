@@ -1,20 +1,18 @@
-def last_occurence(nums: list, item: int):
-    low = 0
-    high = len(nums) - 1
-    found = -1
+def find_last_occurrence(nums, target):
+    low, high = 0, len(nums) - 1
+    last_index = -1  # Default value if target not found
+
     while low <= high:
-        middle = (low + high) // 2
-        guess = nums[middle]
-
-        if guess == item:
-            found = middle
-            low = middle + 1 # checking if appears again
-        elif guess > item:
-            high = middle - 1
+        mid = (low + high) // 2
+        if nums[mid] == target:
+            last_index = mid  # Possible last occurrence found
+            low = mid + 1     # Continue searching to the right
+        elif nums[mid] < target:
+            low = mid + 1
         else:
-            low = middle + 1
+            high = mid - 1
 
-    return found if found != -1 else None
+    return last_index
 
-my_nums = [4, 3, 4, 2, 1, 2, 4]
-print(last_occurence(my_nums, 4))
+# my_nums = [4, 3, 4, 2, 1, 2, 4]
+# print(last_occurence(my_nums, 4))
