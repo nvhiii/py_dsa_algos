@@ -1,3 +1,4 @@
+# O(n^2) time solution, two operations done on data
 def find_smallest(arr: list):
     smallest = arr[0]
     smallest_idx = 0

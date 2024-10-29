@@ -1,3 +1,4 @@
+# O(nlogn) solution, n items in list * logn layers
 def q_sort(nums: list):
     # dc
     if len(nums) < 2:
