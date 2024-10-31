@@ -15,8 +15,8 @@ def search(name: str):
     search_queue += graph[name]
     # check if we searched person already, dont need redundancy
     searched = []
-    while search_queue:
-        person = search_queue.popleft() # returns first person to check against
+    while search_queue: # check not empty
+        person = search_queue.popleft() # returns first person to check against, this delete is optimized to O(1) time
         if not person in searched:
             if person_is_seller(person):
                 print(f"{person} is a mango seller!")
