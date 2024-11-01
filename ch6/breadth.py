@@ -9,10 +9,10 @@ friends["moose"] = []
 friends["tush"] = []
 friends["reesh"] = []
 
-def my_bfs(person: str):
+def my_bfs(first_person: str):
     queue = deque()
-    queue += friends[person]
-    searched = ""
+    queue += friends[first_person]
+    searched = []
     while queue:
         person = queue.popleft() # returns the list of tuples of friends
         if person[0] not in searched:
