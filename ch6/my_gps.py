@@ -23,7 +23,7 @@ def my_gps(graph: dict, start: str, end: str):
         if location == end:
             return path_str(path) # formats the list
 
-        if location not in searched_nodes:
+        if location not in searched_nodes: # can be searched locatiuons to be more concise
             searched_nodes.add(location)
             for neighbor in graph.get(location, []):
                 new_path = path + [neighbor]
@@ -48,3 +48,11 @@ def path_str(path):
 
 
 print(my_gps(locations, "Home", "Gym"))
+
+# my bfs takeaway:
+# We check if we have checked the last item in each path, last item of the list. Then we  get a list where the key is the last item of the previous list in the queue. then we create a new item using this given list and the previous list and we append this to the queue, all up until the last item in the list popped from the queue is the ending.
+
+# Starting with an initial path.
+# Expanding the path by adding neighbors of the last node in each path.
+# Storing and exploring these expanded paths one-by-one.
+# Stopping when we find the destination, thus guaranteeing the shortest path.
