@@ -17,17 +17,17 @@ def my_gps(graph: dict, start: str, end: str):
     queue = deque([[start]]) # list of paths, find shortest
     searched_nodes = set() # O1
     while queue: # while not empty
-        path = queue.popleft()
-        location = path[-1]
+        path = queue.popleft() # returns a list of nodes, locations
+        location = path[-1] # returns last item/location of list, aka path
 
-        if location == end:
+        if location == end: # if last item in this path is specified end, this returns
             return path_str(path) # formats the list
 
         if location not in searched_nodes: # can be searched locatiuons to be more concise
             searched_nodes.add(location)
-            for neighbor in graph.get(location, []):
-                new_path = path + [neighbor]
-                queue.append(new_path)
+            for neighbors in graph.get(location, []): # renamed to neighbors, since this returns list
+                new_path = path + [neighbors] # create new path using previous list and current list
+                queue.append(new_path) # add to queue, rinse and repeat
 
     return "No possible (legal) path found"
 
