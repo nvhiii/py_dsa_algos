@@ -13,7 +13,7 @@ locations = {
 def my_gps(graph: dict, start: str, end: str):
     # do check if location to start and end is same node
     if start == end:
-        return [start]
+        return path_str([start])
     queue = deque([[start]]) # list of paths, find shortest
     searched_nodes = set() # O1
     while queue: # while not empty
