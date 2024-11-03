@@ -3,7 +3,7 @@
 
 def dijkstra(graph, costs, parents, start, end):
     # Keep track of processed nodes
-    processed = []
+    processed = []  
 
     def find_lowest_cost_node(costs):
         lowest_cost = float("inf")
