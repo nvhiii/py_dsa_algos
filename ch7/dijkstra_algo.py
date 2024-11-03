@@ -1,3 +1,6 @@
+# dijkstra algo cannot use negative weights (use bellman ford)
+# cannot be used on graphs that have cycles as well
+
 def dijkstra(graph, costs, parents, start, end):
     # Keep track of processed nodes
     processed = []
