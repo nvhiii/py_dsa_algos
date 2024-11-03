@@ -23,7 +23,7 @@ def dijkstra(graph, costs, parents, start, end):
     node = find_lowest_cost_node(costs)
     while node is not None:
         cost = costs[node] # assigns price to node in costs hashmap
-        neighbors = graph[node] # assigns neighbors to node in graph hashmap
+        neighbors = graph[node] # assigns neighbors to node in graph hashmap, returns a dict
         for n in neighbors.keys():
             new_cost = cost + neighbors[n] # updates cost of the curr path in neighbors hashmap
             if costs[n] > new_cost:
@@ -35,10 +35,10 @@ def dijkstra(graph, costs, parents, start, end):
     # Build the path from start to end
     # this is reverse iterating the graph hashmap
     path = []
-    current = end
+    current = end # start from end of path, "fin"
     while current:
         path.append(current)
-        current = parents.get(current)
+        current = parents.get(current) # iterate through parents graph
     path = path[::-1]  # Reverse to get path from start to end
 
     return path, costs[end]  # Return the path and the total cost to reach the end
