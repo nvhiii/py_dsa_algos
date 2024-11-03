@@ -1,10 +1,13 @@
 # dijkstra algo cannot use negative weights (use bellman ford)
 # cannot be used on graphs that have cycles as well
 
+# graph is the hashmap containing all hash maps
+
 def dijkstra(graph, costs, parents, start, end):
     # Keep track of processed nodes
     processed = []  
 
+    # helper
     def find_lowest_cost_node(costs):
         lowest_cost = float("inf")
         lowest_cost_node = None
@@ -15,13 +18,14 @@ def dijkstra(graph, costs, parents, start, end):
                 lowest_cost_node = node
         return lowest_cost_node
 
+    # first find lowest cost node to go to based on first node
     # Start the algorithm from the starting node
     node = find_lowest_cost_node(costs)
     while node is not None:
-        cost = costs[node]
-        neighbors = graph[node]
+        cost = costs[node] # assigns price to node in costs hashmap
+        neighbors = graph[node] # assigns neighbors to node in graph hashmap
         for n in neighbors.keys():
-            new_cost = cost + neighbors[n]
+            new_cost = cost + neighbors[n] # updates cost of the curr path in neighbors hashmap
             if costs[n] > new_cost:
                 costs[n] = new_cost
                 parents[n] = node
@@ -29,6 +33,7 @@ def dijkstra(graph, costs, parents, start, end):
         node = find_lowest_cost_node(costs)
 
     # Build the path from start to end
+    # this is reverse iterating the graph hashmap
     path = []
     current = end
     while current:
@@ -39,6 +44,9 @@ def dijkstra(graph, costs, parents, start, end):
     return path, costs[end]  # Return the path and the total cost to reach the end
 
 # Define the graph, costs, and parents
+# this is a weighted graph, identified via two nested dicts
+# graph contains nodes as keys, dicts and values
+# inner dict has the neighbors for the outer key, and its corresponding edge weight 
 graph = {
     "start": {"a": 6, "b": 2},
     "a": {"fin": 1},
