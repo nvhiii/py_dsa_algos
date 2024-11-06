@@ -33,7 +33,7 @@ def nahis_dijkstra(graph, costs, parents, end):
     # find lowest cost node
     # step 1, find curr cheapest
     node = find_cheapest_node(costs) # must be costs, not graph bc that returns dicts
-    while node is not None:
+    while node is not None: # check if path is valid
         # get cost of node for addition
         cost = costs[node]
         # get neighbors
