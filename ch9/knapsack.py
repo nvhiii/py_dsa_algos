@@ -1,10 +1,21 @@
-items_to_steal = [("guitar", 1500, 1), ("stereo", 3000, 4), ("laptop", 2000, 3)]
-# item, price, weight
-def knapsack(items: list, sack_limit: int):
-    # dynamic prog split into matrix m by n rows col
-    
-    # first create matrix len(items) x range(sack_limit)
-    max_prices = [[0 for _ in range(len(sack_limit+1))] for _ in range(len(items+1))] # range is exclusive
+def knapsack(weights, values, W):
+    n = len(weights)
+    # Create a (n+1) x (W+1) matrix initialized with 0
+    dp = [[0] * (W + 1) for _ in range(n + 1)]
 
-    # populate
-    pass
+    # Populate the matrix
+    for i in range(1, n + 1):
+        for w in range(W + 1):
+            if weights[i-1] <= w:
+                # Either take the item or leave it
+                dp[i][w] = max(dp[i-1][w], dp[i-1][w - weights[i-1]] + values[i-1])
+            else:
+                dp[i][w] = dp[i-1][w]
+
+    return dp[n][W]
+
+# Example usage:
+weights = [2, 3, 4, 5]
+values = [3, 4, 5, 6]
+W = 5
+print("Maximum value:", knapsack(weights, values, W))  # Output: Maximum value: 7
