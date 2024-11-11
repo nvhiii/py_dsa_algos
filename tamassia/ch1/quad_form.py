@@ -17,7 +17,8 @@ def quadratic(a: int, b: int, c: int):
         return (root_pos, root_neg)
     else:
         return "The roots are complex!"
-    
+
+
 num1 = 3
 num2 = 25
 num3 = 7
