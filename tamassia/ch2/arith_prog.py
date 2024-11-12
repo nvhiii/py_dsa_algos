@@ -1,4 +1,6 @@
-class ArithmeticProgression:
+from progression import Progression
+
+class ArithmeticProgression(Progression):
     def __init__(self, increment=1, start=0):
         super().__init__(start)
         self._increment = increment
