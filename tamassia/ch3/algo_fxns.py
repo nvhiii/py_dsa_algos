@@ -21,5 +21,23 @@
 # big theta to compare equality 
 # f(n) is big-Theta of g(n)
 
+# justification techniques
+
+# counter example
+# prove by providing an example that contradicts
+
+# contrapositive
+# if p then q turns into if not q then not p (complete negation proof)
+
+# contradiction
+# given a statement, assume the opposite first then prove it
+
+# induction
+# involves proving base case then inductive case (basically recursive case)
+
+# loop invariant
+# invariant is the condition for ensuring truth of loop iteration, maintains and then terminates
+
+
 
 
