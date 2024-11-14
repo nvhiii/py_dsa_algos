@@ -5,3 +5,7 @@
 # illustrated
 # factorial
 # english ruler
+
+# linear recursion only 1 recur case
+# binary recusion 2 recur cases
+# multiple recursion more than 2 recur cases
