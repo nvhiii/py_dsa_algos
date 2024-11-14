@@ -1,5 +1,5 @@
 def recursive_factorial(num: int):
-    if num == 1: # base case
+    if num == 0: # base case
         return 1
     else:
         return num * recursive_factorial(num-1)

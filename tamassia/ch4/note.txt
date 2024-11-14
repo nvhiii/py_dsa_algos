@@ -1,0 +1,7 @@
+# recursion
+
+# recognized by distinct base and recursive case
+
+# illustrated
+# factorial
+# english ruler
