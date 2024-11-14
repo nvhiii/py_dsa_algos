@@ -9,3 +9,6 @@
 # linear recursion only 1 recur case
 # binary recusion 2 recur cases
 # multiple recursion more than 2 recur cases
+
+# basically, space complexity = highest power of space needed (n element array ex, etc)
+# time complexity = highest power of operations that need to be executed
