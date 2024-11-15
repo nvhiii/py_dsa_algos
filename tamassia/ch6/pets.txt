@@ -1,0 +1,13 @@
+dog
+cat
+fish
+snake
+cow
+horse
+chicken
+rabbit
+guinea pig
+pig
+leopard gecko
+axolotl
+bird
