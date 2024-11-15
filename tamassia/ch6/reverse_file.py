@@ -1,5 +1,5 @@
 # reversefile.py
-from ArrayStack import ArrayStack  # Import ArrayStack
+from arraystack import ArrayStack  # Import ArrayStack
 
 def r_file(filename):
     stack = ArrayStack()
