@@ -1,0 +1,3 @@
+# arrays
+# dyanmic arrays (list)
+# compact arrays (array.array)
