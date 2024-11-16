@@ -1,3 +1,13 @@
 # arrays
 # dyanmic arrays (list)
 # compact arrays (array.array)
+
+# Compact Arrays:
+- They have fixed size
+- Each item in the list should take same amount of space (memory) // hence, array.array() constructor has 2 param, the identifier in first index, and the set list size as the second
+- this is the same for tuples
+- to calculate approx mem address
+- do start (memory cell) + cell_size * index
+
+# Dynamic Arrays (lists + tuples):
+- represent array of obj references

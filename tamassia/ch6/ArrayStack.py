@@ -1,6 +1,6 @@
 # read from s
 
-from Empty import Empty
+from empty import Empty
 
 class ArrayStack:
     def __init__(self):
