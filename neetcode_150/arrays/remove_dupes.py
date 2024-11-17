@@ -1,4 +1,4 @@
-def removeDuplicates(self, nums):
+def removeDuplicates(nums):
     # since we need to compare contiguous elements in list, need to start iter at 1
     # first check if list empty
     if not nums:
