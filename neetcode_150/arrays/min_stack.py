@@ -5,7 +5,7 @@ class MinStack:
 
     def push(self, val: int):
         self.stack.append(val)
-        if not self.min_stack or self.getMin() < val: # not ensures we dont do a check in min without first appending
+        if not self.min_stack or self.getMin() >= val: # not ensures we dont do a check in min without first appending
             self.min_stack.append(val)
 
     def pop(self):
