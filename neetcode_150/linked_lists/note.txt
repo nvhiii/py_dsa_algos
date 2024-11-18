@@ -1,0 +1,12 @@
+# singly linked list
+- sequential access
+- made up of listnodes
+- listnode: value, next pointer (to next listnode)
+- these are not contiguous cells in memory
+- insertion is o(1) when we know the insertion point
+
+Big Oh notation:
+access: o(n), bc it is sequential access, unless accessing head and tail stored which is o(1)
+search: o(n)
+insert: - insertion is o(1) when we know the insertion point (aka dont need to search via val constraint)
+delete: - deletion is o(1) when we know the deletion point (aka dont need to search via val constraint)
