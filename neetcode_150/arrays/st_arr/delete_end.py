@@ -1,7 +1,4 @@
-def del_end(nums, length):
-    """
-    making last num 0"""
-    if length > 0:
-        nums[length - 1] = 0
-
-    # not using len(nums) and nums[-1] bc i want to try on compact array not dynamic
+def delete_end(arr, length): # soft delete of element at last index
+    """params: static arr, static array num of elements"""
+    if length > 0: # ensure arr length is valid
+        arr[length - 1] = 0

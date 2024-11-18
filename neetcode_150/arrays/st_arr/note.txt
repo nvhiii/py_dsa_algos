@@ -1,0 +1,8 @@
+# arrays
+
+operation | big o notation
+# assume n is num of operations carried out, so big o is worst case avg
+read & overwriting i-th element: o(1), bc accessing (reading) is o(1)
+insert / remove end: o(1)
+insert mid: o(n)
+remove mid: o(n)

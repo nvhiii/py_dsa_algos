@@ -1,8 +1,7 @@
-def traversal(nums):
-    for i in range(len(nums)):
-        print(nums[i])
+for i in range(len(arr)):
+    print(arr[i])
 
-    i = 0
-    while i < len(nums):
-        print(nums[i])
-        i += 1
+i = 0
+while i < len(arr):
+    print(arr[i])
+    i += 1
