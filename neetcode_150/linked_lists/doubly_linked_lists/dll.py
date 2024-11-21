@@ -1,52 +1,104 @@
-# class ListNode:
-#     def __init__(self, value, prev = None, next = None):
-#         self.value = value
-#         self.prev = prev
-#         self.next = next
+class Node:
+    def __init__(self, value):
+        self.val = value
+        self.prev = None
+        self.next = None
 
-# class DoublyLinkedList:
-#     def __init__(self):
-#         self.head = ListNode(-1) # dummy
-#         self.tail = self.head
 
-#     # need to implement get, inserthead + tail, insertIth, deleteIth
-#     def get(self, index): # same as the get method for singly linked list
-#         i = 0 
-#         curr = self.head.next
-#         while curr:
-#             if i == index:
-#                 return curr.val
-#             i += 1
-#             curr = curr.next
-#         return -1 # not found
-    
-#     def insertTail(self, val):
-#         new_node = ListNode(val)
-#         self.tail.next = new_node
-#         new_node.prev = self.tail
-#         self.tail = new_node
+class MyLinkedList(object):
 
-#     def insertHead(self, val):
-#         new_node = ListNode(val)
-#         new_node.next = self.head.next
-#         self.head.next.prev = new_node
-#         self.head = new_node
+    def __init__(self):
+        self.head = Node(-1)
+        self.tail = Node(-1) # dummies
+        # link them
+        self.head.next = self.tail
+        self.tail.prev = self.head
 
-#     def insertIth(self, val, index):
-#         i = 0
-#         curr = self.head
-#         while curr and i < index: # we iterate to node before
-#             i += 1
-#             curr = curr.next
+    def get(self, index):
+        """
+        :type index: int
+        :rtype: int
+        """
+        curr = self.head.next # first non dummy
+        while curr and index > 0:
+            curr = curr.next
+            index -= 1
+        if curr and curr != self.tail and index == 0:
+            return curr.val
+        return -1 # not found
+        
 
-#         if curr:
-#             new_node = ListNode(val) # new node
-#             new_node.next = curr.next # node points to next node after curr
-#             curr.next.prev = new_node # changed node after prev pointer
-#             new_node.prev = curr
-#             curr.next = new_node
-#             if not new_node.next:
-#                 self.tail = new_node
+    def addAtHead(self, val):
+        """
+        :type val: int
+        :rtype: None
+        """
+        first = self.head
+        node = Node(val)
+        second = self.head.next
 
-    
+        first.next = node
+        node.prev = first
+        node.next = second
+        second.prev = node
 
+    def addAtTail(self, val):
+        """
+        :type val: int
+        :rtype: None
+        """
+        first = self.tail.prev
+        node = Node(val)
+        second = self.tail
+
+        first.next = node
+        node.prev = first
+        node.next = second
+        second.prev = node
+
+    def addAtIndex(self, index, val):
+        """
+        :type index: int
+        :type val: int
+        :rtype: None
+        """
+        curr = self.head.next # first non dummy to iter
+        while curr and index > 0:
+            curr = curr.next
+            index -= 1
+        if curr and index == 0:
+            # we iterated to exact index to add at
+            first = curr.prev
+            node = Node(val)
+
+            first.next = node
+            node.prev = first
+            node.next = curr
+            curr.prev = node
+
+    def deleteAtIndex(self, index):
+        """
+        :type index: int
+        :rtype: None
+        """
+        curr = self.head.next
+        while curr and index > 0:
+            curr = curr.next
+            index -= 1
+        if curr and curr != self.tail and index == 0:
+            # curr is the target index
+            first = curr.prev
+            skip_to = curr.next
+
+            first.next = skip_to
+            skip_to.prev = first
+        
+
+
+# Your MyLinkedList object will be instantiated and called as such:
+# obj = MyLinkedList()
+# param_1 = obj.get(index)
+# obj.addAtHead(val)
+# obj.addAtTail(val)
+# obj.addAtIndex(index,val)
+# obj.deleteAtIndex(index)
