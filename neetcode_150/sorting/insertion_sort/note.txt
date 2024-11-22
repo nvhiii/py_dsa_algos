@@ -1,0 +1,13 @@
+# insertion sort
+# pseudo
+
+for i in range(1, len(arr)):
+    j = i - 1 # prev index
+    while j >= 0 and arr[j + 1] < arr[j]: # not adding <= to second cond makes this a stable sorting algo
+        temp = arr[j + 1] # next item is stored curr
+        arr[j + 1] = arr[j] # swap indices
+        arr[j] = temp
+        j -= 1
+
+# best case: o(n)
+# worst case: o(n ^ 2)
