@@ -1,0 +1,38 @@
+# recursion
+
+one branch recursion example:
+- factorial
+    n! = n * (n-1)!
+    ^ how do we get to this? (recursive case)
+
+    Using a decision tree. Only way in this problem to make
+    problem smaller is by decrementing the parameter.
+
+    Ex: In order to solve 5!, we must solve 4! first, 3!, 2!, 1!.
+        = return n * factorial(n-1)
+
+        1! is 1, it is a constant, so it becomes our base case
+        since 0! is also one, our base case would be:
+        if n <= 1:
+            return 1
+
+recursion uses stack, we store all calls in recursive case in stack by appending, then popping after base case is reached
+
+two-branch recursion example:
+- fibonacci
+    f(n-1) + f(n-2) = f(n) / f(0) = 0, f(1) = 1
+    ^ how do we get this?
+
+    base_case = 0, 1 defined
+        if n <= 1:
+            return n # n is either 0 or 1
+
+    recursive case = return fibonacci(n - 1) + fibonacci(n - 2)
+    
+    Use decision tree:
+        F(5) -> F(4), F(3) ... etc
+
+    the time complexity for this two branch recursion is based on
+    the number of layers in the decision tree, how many times
+    the subproblem doubled. This is often a common number, since
+    this number is 2^n. This represents a power series.

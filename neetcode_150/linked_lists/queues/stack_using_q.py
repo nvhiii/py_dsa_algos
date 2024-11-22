@@ -18,7 +18,7 @@ class MyStack(object):
         """
         # since we are storing using a deque, we do fifo, but we need to reorganize the entire queue to make last item the first item since stack needs to remove last item, which in this case will need to be first
         for _ in range(len(self.q) - 1): # iterate until right before last element
-            self.q.append(self.q.popleft()) # [1, 2, 3] -> since queue is popleft, we pop first 2 since iter until right before last element -> [2, 3, 1] -> [3, 2, 1]
+            self.push(self.q.popleft()) # [1, 2, 3] -> since queue is popleft, we pop first 2 since iter until right before last element -> [2, 3, 1] -> [3, 2, 1]
         return self.q.popleft() # after reversing
         
     def top(self):
