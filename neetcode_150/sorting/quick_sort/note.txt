@@ -1,0 +1,7 @@
+quick sort
+
+- n log n average time, worst case n^2
+- typically unstable algo
+- faster than merge sort, since dont need to allocate another ds
+
+pseudo
