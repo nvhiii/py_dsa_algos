@@ -6,13 +6,13 @@ def mergeSort(arr, start, end):
     # split into 2 halves
     mid_idx = (start + end) // 2 # find half index
     mergeSort(arr, start, mid_idx)
-    mergeSort(arr, mid_idx + 1, end)
+    mergeSort(mid_idx + 1, end)
 
     # recur call to merge
     merge(arr, start, mid_idx, end)
 
     return arr
-    
+
 def merge(arr, s, m, e):
     L = arr[s : m + 1]
     R = arr[m + 1 : e + 1]
@@ -43,4 +43,5 @@ def merge(arr, s, m, e):
 
 arr = [4, 5, 3, 2, 1]
 print(mergeSort(arr, 0, len(arr) - 1))
+    
 
