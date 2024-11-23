@@ -36,3 +36,7 @@ two-branch recursion example:
     the number of layers in the decision tree, how many times
     the subproblem doubled. This is often a common number, since
     this number is 2^n. This represents a power series.
+
+    # how do we figure out if recursion is 1 branch ,2 branch, etc?
+
+        a: by the number of calls to the method itself

@@ -1,0 +1,31 @@
+# merge sort
+
+pseudo:
+    merge_sort(arr, start, end):
+        if (start - end + 1 <= 1):
+            return arr
+            # this is the case if the split arr is length 1
+
+        middle = (start + end) / 2 # in python, we might need floor division
+        merge_sort(arr, start, middle) # first half
+        merge_sort(arr, middle + 1, end) # second half
+
+        # merge both sorted branches
+        merge(arr, start, middle, end) # this uses temp arrays
+
+        return arr
+
+# time complexity
+    O(nlogn)
+    why?
+
+    a: because at each step of divide and
+    conquer, we split problem into 2, which is
+    the inverse of exponentiation, logn.
+    When we need to merge however, there is
+    O(n) needed to compare 2 branch and iterate
+    hence we need to iter over all elements,
+    thus getting O(n * logn)
+
+# space complexity
+    O(n)
