@@ -1,0 +1,24 @@
+bucket sort
+
+time complexity: O(n), one pass-through
+    * comes at a constraint
+    * must have a small set of numbers
+
+    pseudo test code
+    list = [0, 1, 2, 1, 0, 0, 1, 0, 0, 2]
+    count = [0,0,0] # since we know only 3 numbers exist in this list
+    for i in range(len(list)):
+        count[i] += 1
+
+    # after getting counts list or hashmap
+    we iter whole count len, each index is reassigned x times
+    i = 0 # var to track index of arr
+    for n in range(len(count)):
+        for _ in range(count[n]):
+            arr[i] = n
+            i += 1
+
+    # this "sorts" but its really just counting then reassigning each element x times
+
+    return arr 
+
