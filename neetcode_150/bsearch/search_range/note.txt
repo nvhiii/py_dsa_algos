@@ -1,0 +1,22 @@
+when we have to implement a binary search without a target to compare to but
+only a range
+
+1. We usually have another method to "define" correctness, e.g. isCorrect, etc.
+
+we use this correctness function within the binary search itself
+
+example pseudo:
+
+    method signature(l, r):
+
+        while l <= r:
+            mi = l + (r - l) // 2
+
+            if helper(mi) > 0:
+                r = mi - 1
+            elif helper(mi) < 0:
+                l = mi + 1
+            else:
+                return mi
+
+    # in this example, helper is our method to define correctness!
