@@ -1,0 +1,12 @@
+binary search tree (BST)
+
+- have sorted aspect of binary tree
+- left child is less than parent
+- right child is more than parent
+- assume the tree is balanced, so we can get logn
+- worst case (if unbalanced), is basically a singly linked list time
+    that time is O(n) or O(h), where h is height
+
+Q: Why use over arrays?
+A:
+This allows for insert and delete faster than arr, where list is o(n), and this is o(logn)
