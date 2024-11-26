@@ -1,0 +1,36 @@
+binary tree
+
+pseudo (very similar to linked list, but they have a parent child relation, instead of prev and next):
+
+class TreeNode:
+    def __init__(self, val, left = None, right = None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+Binary Trees are:
+    - connected
+    - undirected
+    - no cycles (unlike linked lists)
+
+Root:
+    - basically starting TreeNode
+Leaf Node:
+    - nodes that dont have any children, point to null (aka nothing)
+
+Height of a Tree or specific node:
+    - calculated from the root to its lowest descendant
+    - can be calculated by edges or nodes
+    - if nodes, calculate from root node to lowest descendant node
+    - if edges, calculate from first edge to child to lowest child edge
+
+Depth of a Tree or specific node:
+    - calculated from the node to the root
+    - can also be calcuated by edges or nodes
+    - nodes: calcualte from curr node to root node
+    - edges: calculate from curr node edge to parent to edge up to root node
+
+Descendant:
+    - A node anywhere below the current node and lies on path
+Ancestor:
+    - A node anywhere above the current node and lies on the path from node to root
