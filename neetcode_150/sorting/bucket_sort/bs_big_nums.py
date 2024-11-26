@@ -7,7 +7,7 @@ def bs_bn(arr):
 
     i = 0
     for key in sorted_keys:
-        for _ in range(counts[key]):
+        for _ in range(counts):
             arr[i] = key
             i += 1
 
