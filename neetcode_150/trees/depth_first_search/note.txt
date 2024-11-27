@@ -1,0 +1,40 @@
+# DFS
+# depth-first search
+
+- used to traverse a graph or tree
+    - must traverse all nodes, which is o(n) time
+- basically, pick a direction to go to, until hit null, then backtrack to parent node and go opposite direct, then recurse
+
+
+# inorder, preorder, and postorder traversal
+
+inorder pseudo:
+
+    def inorder(root):
+        if not root:
+            return
+        
+        # we check the left node always first, unless ofc reverse order
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
+
+preorder pseudo:
+
+    def preorder(root):
+        if not root:
+            return
+        
+        print(root.val)
+        preorder(root.left)
+        preorder(root.right)
+
+postorder pseudo:
+
+    def postorder(root):
+        if not root:
+            return
+        
+        postorder(root.left)
+        postorder(root.right)
+        print(root.val)
