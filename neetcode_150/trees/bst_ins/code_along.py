@@ -12,8 +12,8 @@ def insert_bst(root, val):
         root.right = insert_bst(root.right, val)
     elif val < root.val:
         root.left = insert_bst(root.left, val)
-    else:
-        return root # return whole tree
+    
+    return root
 
 def findMinNode(root):
     curr = root
