@@ -6,3 +6,5 @@ def inorder(root):
     inorder(root.left)
     print(root.val)
     inorder(root.right)
+
+tree = [1, 2, 3, 4, 5, 6, 7]

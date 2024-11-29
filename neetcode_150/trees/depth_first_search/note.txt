@@ -4,8 +4,7 @@
 - used to traverse a graph or tree
     - must traverse all nodes, which is o(n) time
 - basically, pick a direction to go to, until hit null, then backtrack to parent node and go opposite direct, then recurse
-
-
+- in all forms, inorder, preorder, postorder, or reverseorder: o(n) time to visit all nodes in the tree and the space is O(h) or O(n), O(logn) if balanced bt
 # inorder, preorder, and postorder traversal
 
 inorder pseudo:
