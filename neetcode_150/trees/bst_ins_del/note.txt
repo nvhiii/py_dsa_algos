@@ -1,0 +1,39 @@
+# BST Insert and Delete
+
+- We can do this faster than most other dsa like arrays or darrs,
+    * IFF we have a balanced tree
+
+# Insertion in BST
+- First must iterate to the position recursively, through left or right tree
+- Then, we hit base case similar to this:
+
+    pseudo:
+    if not root:
+        return TreeNode(val) # creates the val at the specified null pos
+
+- we return the entire tree recursively at end, return root
+
+# Removal in BST
+- First we iterate to the position recursively, through left or right tree
+- Base case case is reaching a leaf node (null or None)
+- after we reach appropriate node, we check if it has <= 1 children
+
+    pseudo:
+    if not root.left:
+        return root.right
+    elif not root.right:
+        return root.left # shifts entire position to left subtree basically
+
+- if the node to be deleted has 2 children:
+- do in order successor
+- basically, traverse right tree but the smallest val in the right tree
+
+    pseudo:
+
+    else:
+        min_val_greater = findSmallestNode(root.right) # use helper to find smallest child to right
+        root.val = min_val_greater.val # we set curr node val to right child val
+        root.right = remove(root.right, min_val_greater.val)
+
+- finally, we do a recursive call to change the value of root.right and change the subtree
+- we return the root outside this logic, and we get ourselves the changed tree from root
