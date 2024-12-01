@@ -1,1 +1,18 @@
 # BST Sets and Maps
+
+- sets and maps can be implemented through BST
+- access, insert, delete all o(logn) time then
+- python needs import
+
+    pseudo:
+        from sortedcontainers import SortedDict
+
+Sets:
+- allow for only unique vals
+Trees:
+- ensure order
+Therefore, trees + sets = treeset, no dupes + in order = o(logn)
+
+Maps:
+- key value pair
+Tree + Map = treemap
