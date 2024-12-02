@@ -1,0 +1,4 @@
+Backtracking
+
+- a brute force method, check all paths
+- usually implemented using dfs
