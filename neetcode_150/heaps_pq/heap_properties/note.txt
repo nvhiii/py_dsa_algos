@@ -1,0 +1,29 @@
+# Heaps / Priority Queues
+
+Structure:
+    - must be a complete binary tree, meaning no levels
+    aside the last lvl can have null values
+    - Basically, no holes until last level
+
+Order:
+    - Min vs Max property Priority
+
+    For Min Heap:
+    - recursively, all descendants should be greater than 
+    or equal to root node
+    
+    For Max Heap:
+    - recursively, all descendants should be less than
+    or equal to root node
+
+Visualization of a heap is via a tree, but under the hood
+is an array
+
+How the heap array is constructed:
+- 0th index is skipped (to calculate and percolate between elements)
+- How to calculate the nodes:
+    leftChild = 2 * index
+    rightChild = 2 * index + 1
+    parent = index // 2 (round down)
+
+    ** CALCULATION ONLY VALID IF WE HAVE A COMPLETE BINARY TREE
