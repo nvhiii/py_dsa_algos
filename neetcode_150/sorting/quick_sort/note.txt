@@ -1,5 +1,20 @@
 quick sort
 
+# s = start, e = end
+- check e - s + 1 <= 1 (check if arr len is less than equal to 1, "already sorted")
+- pivot
+- iterate the whole array, then sort into less than number located at pivot
+
+left = s
+
+    pseudo:
+    for i in range(s, e):
+        arr[left], arr[i] = arr[i], arr[left]
+
+- move pivot
+- then quick sort each side
+- return the arr 
+
 - n log n average time, worst case n^2
 - typically unstable algo
 - faster than merge sort, since dont need to allocate another ds

@@ -1,0 +1,6 @@
+Queues
+
+- This is a first in, first out struct (think of a line in a grocery)
+(FIFO)
+- access: o(n)
+- enqueue, dequeue o(1)

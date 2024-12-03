@@ -1,0 +1,6 @@
+Stacks
+
+3 features
+- push: o1
+- pop: o1 # check if empty
+- peek (access): o1

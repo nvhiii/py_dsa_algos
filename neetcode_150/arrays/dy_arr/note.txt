@@ -1,0 +1,4 @@
+time complexity:
+access: o(1)
+insert: o(n) # if not first or last index
+delete: o(n) # if not first or last index

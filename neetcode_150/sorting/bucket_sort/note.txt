@@ -1,5 +1,8 @@
 bucket sort
 
+- works well when all values of arr in a certain range
+- "bucket" is the index in the count arr which we map the arr values
+
 time complexity: O(n), one pass-through
     * comes at a constraint
     * must have a small set of numbers
