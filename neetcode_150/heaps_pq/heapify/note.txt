@@ -1,0 +1,31 @@
+The inner workings of heapify
+
+- O(n) time for turning arr into a proper heapify
+
+Properties of a heap:
+1. Structure:
+    - Heaps must be a complete binary tree
+2. Order:
+    - Heaps must follow the priority index, min or max heap
+
+This algorithm is much more efficient than the nlogn bst creation
+
+How to implement a heapify algorithm:
+
+1. feed in arr to turn into heap
+2. ignore index in the 0th index, and add to end instead
+3. make an iteration variable, such as curr
+    pseudo:
+    curr = (len(heap) - 1) // 2 # finds first non leaf node "node", aka index
+
+4. iterate while curr > 0, meaning each iter we decrement curr by 1
+5. Store curr in anoter temp (i)
+5. now we percolate down for each of these non-leaf nodes
+    pseudo:
+    i = curr
+    while 2 * i < len(heap): # meaning left child exists
+6. set var for left child, right child, set min child to left default
+7. now change min child var if needed
+8. then check if curr node val < heap[min_child] (min child index), if so its ordered and we break
+9. outside the if stmt, we do the swap between ith and min_child index
+10. i is decremented by 1
