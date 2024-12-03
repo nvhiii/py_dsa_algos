@@ -1,0 +1,26 @@
+Pushing in a Heap:
+
+- Must keep structure and order in mind
+Struct: must be complete bt
+Order: parent node must be less than all child nodes, or greater than all child nodes
+
+    pseudo:
+    1. append the val to the heap, so it adds to end of arr
+    2. compare the val to its parent (i // 2), then continuously swap back
+    3. decrement i
+
+Popping in a Heap:
+Struct: must be complete bt
+Order: parent node must be less than all child nodes, or greater than all child nodes
+
+    pseudo:
+    1. check if valid heap (1 or less val)
+    2. acces min or max (1st node) + store in a temp var
+    3. retain structure, so first node now points to popped last node
+    4. iterate over all nodes in the heap
+    5. left, right, min child
+    6. keep track of min child
+    7. if index of heap i is les than min child index in heap, break loop
+    8. else recur, doing swaps between ith and min child index
+    9. every recur, make i equal min child
+    10. return the mv stored in the temp
