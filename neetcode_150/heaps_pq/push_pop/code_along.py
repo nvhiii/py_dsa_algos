@@ -14,7 +14,7 @@ class Heap:
     def delete(self):
         # check cases
         if len(self.heap) == 1:
-            return None # since we do indexing from 1st index
+            return None # since we do indexing from  1st index
         if len(self.heap) == 2:
             return self.heap.pop() # just return first index, which is 2
         

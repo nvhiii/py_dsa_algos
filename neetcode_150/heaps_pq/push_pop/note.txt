@@ -5,8 +5,8 @@ Struct: must be complete bt
 Order: parent node must be less than all child nodes, or greater than all child nodes
 
     pseudo:
-    1. append the val to the heap, so it adds to end of arr
-    2. compare the val to its parent (i // 2), then continuously swap back
+    1. append the val to the heap, so it adds to end of arr to keep struct
+    2. compare the val to its parent (i // 2), then continuously swap back upwards to keep order
     3. decrement i
 
 Popping in a Heap:
