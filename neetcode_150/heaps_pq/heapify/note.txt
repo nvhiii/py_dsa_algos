@@ -17,9 +17,10 @@ How to implement a heapify algorithm:
 3. make an iteration variable, such as curr
     pseudo:
     curr = (len(heap) - 1) // 2 # finds first non leaf node "node", aka index
+    # this calculates last element and find its parent
 
 4. iterate while curr > 0, meaning each iter we decrement curr by 1
-5. Store curr in anoter temp (i)
+5. Store curr in another temp (i)
 5. now we percolate down for each of these non-leaf nodes
     pseudo:
     i = curr
@@ -28,4 +29,5 @@ How to implement a heapify algorithm:
 7. now change min child var if needed
 8. then check if curr node val < heap[min_child] (min child index), if so its ordered and we break
 9. outside the if stmt, we do the swap between ith and min_child index
-10. i is decremented by 1
+10. i is  set to min child
+11. curr is decremented by 1
