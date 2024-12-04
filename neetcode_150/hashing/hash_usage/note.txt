@@ -1,0 +1,21 @@
+Hash Usage
+
+- set: contains only keys
+- map: contains keys + values
+
+- both cannot have duplicate keys though!
+
+- treemap v. hashmap
+
+treemap:
+insert o(logn)
+delete o(logn)
+access o(logn)
+traverse o(n)
+
+hashmap:
+insert o(1)
+delete o(1)
+access o(1)
+cannot traverse, need a sort algo, nlogn
+
