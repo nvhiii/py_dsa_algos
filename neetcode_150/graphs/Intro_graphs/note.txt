@@ -1,0 +1,68 @@
+Graphs
+
+- Similar to trees and linked lists, bc has nodes
+- Actually, not nodes but rather "vertices"
+- The nodes are connected via edges
+- E is the variable for the # of edges
+- V is the variable for the # of vertices
+- Given this info, E <= V^2 always, dupe edges not allowed
+
+Q: Why will the number of edges be less than the vertices squared?
+A: Because, each vertice can have edges going into it as well, this is a cycle (trees cannot have cycles!)
+
+- Also, if v^2 is equal to e, then we have a complete graph,
+meaning each vertice has max # of edges possible from it
+
+Directed v. Undirected Graphs
+- Directed: uses arrow on the edge to point to another nodes
+ex:
+    - Linked list, trees
+
+- Undirected: no arrows on edges, but implied they point
+both directions
+
+There are 3 types of graphs:
+1. Matrix
+2. Adjacency Matrix
+3. Adjacency List
+
+Matrix
+- can have m rows
+- can have n cols
+- the rows and col vals are exclusive to one another
+- How we access item in matrix:
+    matrix[m][n] # usually good to use m n or r(ow) and c(olumn)
+- Space:
+    O(m * n)
+
+Adjacency Matrix
+- index of array is a vertex itself
+    ex:
+    _ 0 1 2 3
+    0
+    1
+    2
+    3
+
+    Now, given that those are the dimensions of the adjacency matrix,
+    we map 0s and 1s to the intersections.
+    1 = there is an edge between the two vertices
+    0 = no edge
+
+    * keep in mind, the matrix MUST have same dimensions
+
+- This usage is bad, because what if our graph has a few edges?
+- This leads to lot of memory waste + usage
+- Space complexity: O(V^2) # v is # of vertices
+
+Adjacency List
+- Can be implemented via a 2d array (matrix) or a Hashmap
+
+    pseudo:
+    class GraphNode:
+        def __init__(self, val):
+            self.val = val
+            self.neighbors = [] # list, hence the name
+
+- space complexity: O(v + e) # we only take up memory we need
+

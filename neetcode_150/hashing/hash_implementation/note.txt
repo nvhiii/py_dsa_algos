@@ -9,7 +9,7 @@ hash implementation steps:
 5. Rehash (resizing)
 
 Important notes:
-
+    
 Noob hash fxn:
 1. Calculate ordinal val of each chara in string then divvy by
 the capacity of the arr (for string only)
