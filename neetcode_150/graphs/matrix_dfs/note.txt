@@ -1,0 +1,49 @@
+Matrix DFS
+- assume 1 valid path in matrix (if not sure, ask interviewer)
+- start top left
+- can move in 4 direction, hence need to take care of base case
+    
+    * take care of base case (too small + out of bounds)
+    pseudo:
+
+    if min(r, c) < 0
+    
+    * take care of base case (too big + out of bounds)
+    or r == ROWS or c == COLS
+
+    * take care of case if item in matrix is 1 (blocked):
+    or grid[r][c] == 1
+
+    * take care of case if item in matrix is visited:
+    (r, c) in visited (visit is a hashset)
+
+    return 0 (false)
+
+
+    Another if stmnt check, if we successfully reached item in last row + COLS
+    We find that out if r == ROW - 1 and c == COL - 1, then return 1
+
+    return 1 (true)
+
+# now for non-base
+
+visted.add((r, c)) # can use a 2dim arr to exemplify
+
+count = 0 # init
+count += dfs(grid, r + 1, c, visited) # down
+count += dfs(grid, r - 1, c, visited) # up
+count += dfs(grid, r, c + 1, visited) # right
+count += dfs(grid, r, c - 1, visited) # left
+
+
+visited.remove((r, c)) # we backtrack all the way up the valid visited, then increment count based on paths from the index
+return count 
+
+For time complexity:
+    Similar to tree complexity, num start nodes ^ height of tree
+    4 directions, 4 nodes
+    and height is r * c or m * need
+    hence, time complexity is 4 ^ m*n
+
+params:
+grid, r, c, visited, (len of rows), (len of columns) # r is row index, c is col index
