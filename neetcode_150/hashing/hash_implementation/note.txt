@@ -1,0 +1,28 @@
+hash implementation steps:
+
+(1 to 3) must be O(1) time
+1. access while self.map[index] != None
+2. insert while true
+3. delete while true
+
+4. Hash function
+5. Rehash (resizing)
+
+Important notes:
+
+Noob hash fxn:
+1. Calculate ordinal val of each chara in string then divvy by
+the capacity of the arr (for string only)
+
+Rehashing tip:
+1. resize capacity by factor of 2 (for more specialization, find double and then next prime actually for less collisions)
+2. new arr
+3. populate arr by iterating range of capacity, append None
+4. store the curr map in a temp var
+5. set map var to new arr
+6. iter the pairs from the temp then append using insert method
+
+
+
+
+

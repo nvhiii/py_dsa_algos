@@ -11,7 +11,7 @@ class LRUCache:
             self.cache.move_to_end(key)
             return self.cache[key]
         return -1
-
+    
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.cache.move_to_end(key)
