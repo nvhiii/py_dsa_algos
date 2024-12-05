@@ -47,3 +47,20 @@ For time complexity:
 
 params:
 grid, r, c, visited, (len of rows), (len of columns) # r is row index, c is col index
+
+Some tips:
+- always keep track of # rows + cols
+- When asked to return a max or something similar, you need to return the dfs call with the iteration value or factor
+    - rows + cols
+    - visited set
+    - then after dfs calls done, introduce var to update then return
+- when asked to find num of x in a matrix, keep track of the following:
+    - rows + cols
+    - directions
+    - # items we r looking for
+    - in this dfs implementation, we wont use a set to checked visited usually
+    - we typically return on base w/ no value
+    - then for recursive case, we iterate using directions then changing the dfs params
+        using the current params + directionality
+    - then iterate matrix and upate the # items we looking for
+    
