@@ -10,3 +10,16 @@ access: o(n), bc it is sequential access, unless accessing head and tail stored 
 search: o(n)
 insert: - insertion is o(1) when we know the insertion point (aka dont need to search via val constraint)
 delete: - deletion is o(1) when we know the deletion point (aka dont need to search via val constraint)
+
+Time complexities:
+
+Singly / Doubly Linked Lists:
+- FIFO
+Access/Search: o(n) # sequential access
+Insert: o(1)
+Delete: o(1)
+
+Queue:
+- FIFO
+- Enqueue: o(1) # add
+- dequeue: o(1) # del

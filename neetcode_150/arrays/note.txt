@@ -1,0 +1,13 @@
+# Time complexities:
+
+dynamic / static array: 
+- LIFO
+access/search: o(1) - RANDOM ACCESSING ALLOWS THIS
+delete: o(n)
+insert: o(n)
+
+stack:
+- LIFO
+push: o(1)
+pop: o(1)
+peek: o(1)

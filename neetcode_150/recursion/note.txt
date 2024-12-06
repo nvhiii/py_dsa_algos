@@ -1,5 +1,14 @@
 # recursion
 
+- basically calling same function multiple times, but making problem smaller
+    - we make problem smaller by finding base case
+    - then we make recursive case to reach base case
+    - in the recursive case, we call the function itself with different parameter(s)
+    - each call in recursive case is placed onto end of call stack, then after we reach base case, the
+        last call is popped from top, then we keep doing so until all calls are popped and get our expected result
+
+    
+
 one branch recursion example:
 - factorial
     n! = n * (n-1)!
@@ -40,3 +49,10 @@ two-branch recursion example:
     # how do we figure out if recursion is 1 branch ,2 branch, etc?
 
         a: by the number of calls to the method itself
+
+Time complexity:
+- Depends on the # operations in each function call, therefore it is a multiple of the # operations per fxn
+- depends on the # of branch recursion it is
+    The types of branch recursion:
+        - one branch
+        - multi branch

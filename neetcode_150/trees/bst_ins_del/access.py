@@ -8,9 +8,9 @@ def findBST(root, val):
     if not root:
         return None
     
-    if val < root.val:
-        root.left = findBST(root.left, val)
-    elif val > root.val:
-        root.right = findBST(root.right, val)
-    else:
-        return root
+    if val > root.val:
+        return findBST(root.right, val)
+    elif val < root.val:
+        return findBST(root.left, val)
+    
+    return root

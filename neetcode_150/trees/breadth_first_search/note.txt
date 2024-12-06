@@ -11,9 +11,9 @@ pseudo:
     queue = deque()
 
     if root:
-        queue.append(root)
+        queue.append(root) # or queue = deque([root])
 
-    while len(queue) > 0:
+    while len(queue) > 0: # or while q
         for i in range(len(queue)):
             curr = queue.popleft()
             if curr.left:
