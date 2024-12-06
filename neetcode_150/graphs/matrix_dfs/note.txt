@@ -1,4 +1,6 @@
 Matrix DFS
+
+- recursive solution
 - assume 1 valid path in matrix (if not sure, ask interviewer)
 - start top left
 - can move in 4 direction, hence need to take care of base case

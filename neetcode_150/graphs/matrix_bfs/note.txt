@@ -1,0 +1,27 @@
+Matrix BFS
+
+- iterative solution
+- set up:
+    - need queue
+    - might need hashset
+    - track rows + cols
+    - initialize the queue + hashset
+    - initialize what u wanna track
+
+- iterate over queue
+- pop items, usually r + c indices
+- we have a base case here:
+    pseudo:
+        if r == ROWS - 1 and c == COLS - 1:
+            return X (whatever, maybe length)
+
+- now track directions
+- for dr, dc in directions
+- then have a base case for if out of bounds dr + r, dc + c
+- check if r,c in visited
+- check if grid[r + dr][c + dc] == X value
+- if any base case is true, just continue
+
+- else, we add the pair r + dr, c + dc into the queue and the hashset
+- update the val we tracking
+- return it if needed
