@@ -1,0 +1,37 @@
+Graphs
+
+- Graphs are made up of nodes and edges
+
+Terms:
+- Vertice: A node in a Graphs
+- Edge: Connect node to node
+- Directed graph: edges have arrows
+    * have pointers (e.g. linked list, trees)
+- Undirected graph: edges have no arrows
+
+V = Vertice
+E = edge
+
+E <= V^2 always
+
+Types of Graphs:
+1. matrix   
+    space: n * m (n cols and m rows)
+2. adjacency matrix
+    space: V^2 since matrix must have vertice by vertice dimensions
+3. adjacency list
+    space: V + E
+
+Matrix DFS:
+
+(my explanation): so my understanding is that count is first 0, then we have the base case checking, then we find next valid spot starting down, up, right, left. Then if it is valid, we call dfs on that specific row and col val of the grid, then we keep going on the specific set of recursive calls until we get to valid end, which is [3][3] in this case. Then we reached the base case for valid, then return 1. Then we backtrack using remove on the visited, until we find another index in the matrix that can give us a possible route. (this possible route is found by iterating the recursive calls via dfs again on the backtracked index, then finding a valid index on bottom, top, right, left. This is usually dependent on if one of the other dfs recursive cases were added to stack, so we skipped the later recursive call. Then we keep doing this backtracking, until we return all the way back to [0][0], correct?
+Time complexity:
+    - depends on movement in graph
+    - Ex: O((Num Movements)^n * m) # 4 directional = 4^nm, 8 directional = 8^nm, etc
+
+
+
+
+
+
+
