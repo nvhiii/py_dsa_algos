@@ -30,11 +30,23 @@ Matrix DFS:
 Time complexity:
     - depends on movement in graph
     - Ex: O((Num Movements)^n * m) # 4 directional = 4^nm, 8 directional = 8^nm, etc
-    
+Space:
+    - O(n * m) # depends on size of recursion stack (n * m) and size of hashset, (n * m)
 
 Matrix BFS:
 
 - uses iteration
+- used to find shortest path
+    Q: Why?
+    A: because unlike DFS, which goes all the way down a specific path first, BFS goes layer by layer
+        By layer by layer (this means the directions around the curr matrix index), the queue is appended
+        the indices surrounding the current index in the matrix, and we first iterate those before going to next
+        layer. Hence, we do not make the mistake of going down an invalid path
+
+Time Complexity:
+    - O (n * m) worst case visited all coord
+Space:
+    - O(n * m) bc queue n * m vertices or hashset n * m vertices
 
 
 
