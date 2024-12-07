@@ -1,0 +1,32 @@
+Adjacency list
+- can be implemented as a graph like so:
+class GraphNode:
+    def __init__(self, val):
+        self.val = val
+        self.neighbors = []
+
+common way to do it using hashmap:
+adj_list = { "A": [], "B": []}, etc
+
+Q: how to build adj list given directed edges?
+
+directed edges = {["a": "b"], etc...}
+
+    for n, dst in edges:
+        if n not in adjlist:
+            adjlist[n] = []
+        if dst not in adjlist:
+            adjlist[dst] = []
+        adjlist[n].append(dst)
+    visited.add(node)
+
+DFS on an Adjacency list
+1. base case
+dfs(node, target, adjlist, visit):
+    if node in visit:
+        return 0
+    if node == target:
+        return 1
+
+    visit.add(node)
+    for neighbor in 
