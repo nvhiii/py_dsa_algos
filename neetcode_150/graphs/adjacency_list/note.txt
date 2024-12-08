@@ -8,6 +8,8 @@ class GraphNode:
 common way to do it using hashmap:
 adj_list = { "A": [], "B": []}, etc
 
+# in this scenario, "A" is the val of the vertice, and its neighbors are [], etc
+
 Q: how to build adj list given directed edges?
 
 directed edges = {["a": "b"], etc...}
