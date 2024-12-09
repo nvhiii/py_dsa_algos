@@ -13,7 +13,7 @@ adj_list = { "A": [], "B": []}, etc
 Q: how to build adj list given directed edges?
 
 directed edges = {["a": "b"], etc...}
-
+    
     for n, dst in edges:
         if n not in adjlist:
             adjlist[n] = []
