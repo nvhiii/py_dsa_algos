@@ -6,40 +6,39 @@ class Node:
         self.neighbors = neighbors if neighbors is not None else []
 """
 from collections import deque
+from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        # we have list of nodes
-        # indexing starts at 1, each list index within list of nodes represents the node itself, and the array contents are its neighbors
-        # we want to clone this
-        # can still have node with no edges at all -> basecase?, actually empty init node is basecase
-
-        # need cloned hashmap, graph = adj list easily
-        # base case - no node, none
-        # queue, for bfs
-        # initiliaze queue with node
-        # initialize first val in hm using node class def
-        # iterate the queue (which iterates each node)
-        # pop item, get node
-        # iterate its neighbors
-        # check if not in hm
-        # if not, append q + create new key for the neighbor
-        # if it is is hm, then append to curr neighbors the ref to the cloned neighbor
-        # return the cloned arr pointing to first node
+        # notes
+        # node class given
+        # goal: deep copy of a graph (hash map)
+        # val = node index
+        
+        # approach
+        # bfs or dfs, ill go with bfs
+        # base case / edge: if not node
+        # have a queue for each node
+        # have cloned hm
+        # populate hm + queue with first node
+        # iterate the q, then iterate each ndoe neighbors + appropriately populate
+        # return cloned hm and ref to original node
+        # space + time = o(v + e), v = vertice, e = edge
 
         if not node:
             return None
 
-        cloned = {}
         q = deque([node])
-        cloned[node] = Node(node.val)
+        cloned = {}
+        cloned[node] = Node(node.val) # from node class
 
         while q:
-            curr = q.popleft() # gives us the node itself
-            for n in curr.neighbors:
-                if n not in cloned: # not a key yet
+            curr = q.popleft()
+            for n in curr.neighbors: # from node class
+                if n not in cloned: # case for if neighbor not a key val yet in cloned hm
+                    q.append(n)
                     cloned[n] = Node(n.val)
-                    q.append(n) # append this neighbor node
-                # already a key case
+                # case for the n is a key val already
                 cloned[curr].neighbors.append(cloned[n])
 
         return cloned[node]
+    
