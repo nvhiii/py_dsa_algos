@@ -1,0 +1,21 @@
+1 Dimension dynamic Programming
+
+- Basically optimized recursion
+- break down large problems into smaller problems
+- solve these smaller problems, but optimize (memoization / caching / tabulation)
+- reach base case
+- solution is optimal
+
+Two Types of 1 Dimension Dynamic Programming
+- Top Down
+    other names:
+        memoization + caching
+    top down = top down iteration of a recursive tree, but also efficient
+                storing. This is to reach base case efficiently
+
+- Bottom up
+    other names:
+        tabulation
+    bottom up = bottom up iteration, starting from base case + unique storing solution, usually o(1) storing
+
+
