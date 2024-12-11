@@ -1,3 +1,5 @@
+# this solution is a top down solution using memoization + caching
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         # dimensions of grid are m x n (rows and cols indexed from 1)
