@@ -15,10 +15,11 @@ pseudo (to find the max sum):
 # very similar to finding max or min in an arr actually!
 
 maxSum = first index of arr
+currSum = 0
 
 iterate the elements in given arr
 for num in nums:
-    initialize currSum, and check if it is nonnegative from prev iter if applicable
+    check if currSum is nonnegative from prev iter if applicable
     currSum = max(currSum, 0)
     add the new num to currSum
     currSum += num
