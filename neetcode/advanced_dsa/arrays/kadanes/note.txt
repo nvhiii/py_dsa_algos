@@ -1,0 +1,54 @@
+Kadane's Algo
+
+* (a subarray is defined by contiguous elements in arr)
+* also make sure to check if output has to be based on non-empty arr!
+* when all elements in arr is positive, this means that the max is the entire arr
+* always try to avoid negative sum subarray
+
+- "find the max sum of a subarray given an arr"
+or
+- "find the indices of the last and first index of the subarray which yields max sum in the arr"
+or
+- "return the subarr which yields the max sum in the arr"
+
+pseudo (to find the max sum):
+# very similar to finding max or min in an arr actually!
+
+maxSum = first index of arr
+
+iterate the elements in given arr
+for num in nums:
+    initialize currSum, and check if it is nonnegative from prev iter if applicable
+    currSum = max(currSum, 0)
+    add the new num to currSum
+    currSum += num
+    # update max as needed
+    maxSum = max(maxSum, currSum)
+
+return maxSum # gives us the max sum of a subarray within the given arr
+
+pseudo (to find the left and right indices of the max sum subarr in arr)
+
+initialization of variables:
+maxSum = 0th index of arr val
+currSum = 0
+maxL, maxR = 0, 0 # these are the pointers we will update for the max subarr start + end indices
+L = 0 # this is the pointer for the left index in the arr
+
+for R in range(len(nums)): # R represents the right bound
+    # now do a check on the currSum if nonnegative
+    if currSum < 0:
+        currSum = 0
+        L = R # move the pointer, to skip the negative number, the prev index doesnt matter to us
+
+    # add the num in the curr index to currSum
+    currSum += nums[R]
+    # do a check with max
+    if currSum > maxSum:
+        maxSum = currSum
+        maxL, maxR = L, R
+
+return L, R
+
+time complexity: o(n), 1 pass through the nums arr
+space: o(1), we arent using extra ds, and only a handful of variables needed.
