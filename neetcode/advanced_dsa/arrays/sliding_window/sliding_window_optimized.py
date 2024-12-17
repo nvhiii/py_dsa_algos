@@ -10,7 +10,7 @@ def sliding_window_o(arr, k):
             window.remove(arr[L])
             # move the pointer L to the right
             L += 1
-        # check if we have a dupe in the window, then true
+        # check if we have a dupe in the window, then true  
         if arr[R] in window:
             return True
         
