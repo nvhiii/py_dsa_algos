@@ -1,14 +1,23 @@
 class Solution:
     def countBits(self, n: int) -> List[int]:
-        binary_representation = [base10 for base10 in range(n + 1)]
-        for i, num in enumerate(binary_representation):
-            # convert each num
-            count = 0
-            while num > 0:
-                if num & 1 == 1:
-                    count += 1
-                # divide by two via bit shift
-                num = num >> 1
-            binary_representation[i] = count
+        # given num n, create arr 0 to n inclusive
+        # make into base10
+        # count num of 1 bits in each num
+        
+        # brute or intuition
+        # first \each num per iter
 
-        return binary_representation
+        arr = []
+        for j in range(n + 1):
+            # calc the base 2 from base 10 here
+            # count bits
+            bits = 0
+            while j > 0:
+                bits += j & 1
+                j = j >> 1 # div by power of 2
+            arr.append(bits) # this iterates once after the 1 bits calc is done for the num j
+
+        return arr
+    
+# not most optimal
+
