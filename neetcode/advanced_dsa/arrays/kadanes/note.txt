@@ -11,7 +11,20 @@ or
 or
 - "return the subarr which yields the max sum in the arr"
 
-pseudo (to find the max sum):
+# brute force:
+
+for L in range(len(arr)):
+    currSum = 0
+    for R in range(L, len(arr)):
+        currSum += arr[R]
+        maxSum = max(maxSum, currSum) # make sure to initialize maxSum beforehand, given we have nonempty arr
+
+return maxSum
+
+# in brute force, we are doing extra work.
+# why even consider adding the currNum if the prev sum is negative? it will never be valid and greater
+
+pseudo (to find the max sum) for optimized 1 pass:
 # very similar to finding max or min in an arr actually!
 
 maxSum = first index of arr

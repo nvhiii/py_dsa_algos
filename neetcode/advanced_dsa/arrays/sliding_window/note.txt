@@ -1,0 +1,57 @@
+# Sliding Window (Fixed)
+
+Q: Given an array, return true if there are two elements within a window of size k that are equal
+
+sample data: [1,2,3,2,3,3], k = 3 (k is window size)
+
+So, what is relevant info for this problem?
+- a bool return val
+- a window which we have to track for dupes
+
+# brute force intuition
+
+1. keep track of left pointer, 0
+2. keep track of right pointer, starting at 1
+3. iterate the arr with right pointer until len of arr (make sure R cannot go past len arr)
+4. return true if values at index L and R are equal
+5. if iteration done and no true executed, return false!
+
+pseudo:
+
+for L in range(len(arr)):
+    for R in range(1, min(len(arr), L + k)): # we check that the L + k isnt greater than arr length
+        if arr[L] == arr[R]:
+            return True # the first index of window == curr index
+
+return False
+
+time: o(n*k) or o(n * n) because for each val n, we iterate arr - n times, k
+space: o(1), no extra mem allocated
+
+# optimized (one pass) intuition
+
+1. since we have dupes, we can use a hashset for o(1) access
+2. track left pointer and init as 0
+3. iterate whole arr with right pointer and init as 0
+4. each iteration, we check if val at the index is in the hashset
+5. if in hashset, we return True immediately
+6. Else, check if window size > k (R - L + 1).
+7. if it is, we remove L index val from hashset
+8. inc L by 1
+9. add val to hashmap
+10. return False if iteration completely executed
+
+pseudo:
+
+window = set()
+L = 0
+
+for R in range(len(nums)):
+    if R - L + 1 > k:
+        window.remove(nums[L])
+        L += 1
+    if nums[R] in window:
+        return True
+    window.add(nums[R])
+
+return False
