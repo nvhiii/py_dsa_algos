@@ -1,0 +1,70 @@
+# Sliding Window (Variable Size)
+
+- Usually a problem in which we have to increase or decrease size of array while it fits a given constraint
+
+Example Question:
+Find the length of the longest subarr with the same value in each position
+
+arr = [4, 2, 2, 3, 3, 3]
+
+Given:
+- arr
+- constraint: find longest subarr with all same vals
+
+Brute force intuition:
+- need to iterate all nums
+- for blank in range(len(nums))
+- for each iteration, we check if the val at the index is equal to prev index, so we must start at blank = 1
+- if blank != blank - 1, we restart L pointer (so we need to track that as well) or we can just compare L and R
+- L = blank
+- for every iter, we update length by comparing curr window size with curr length : length = max(length, blank - L + 1)
+- return length after iteration, since we know there wont be a case where length < 1
+
+pseudo:
+
+length = 0
+L = 0
+
+for R in range(len(nums)):
+    if nums[L] != nums[R]:
+        L = R
+    length = max(length, R - L + 1)
+
+return length
+
+time: o(n)
+space: o(1)
+
+Another Q:
+Find the minimum length subarr where the sum is greater than 
+or equal to the target.
+Assume all values are positive.
+
+Given:
+- arr
+- target val, which sum of subarr must be >=
+
+Relevant info:
+- L + R pointers
+- track currSum
+- update currSum
+- if currSum >= the target, keep minimizing the arr till it no longer fits constraint
+- but first, - update length via length = min(length, R - L + 1)
+- how to minimize? first decrease the currSum by the least recent val in window
+- the least recent val in the window is the nums[L]
+- increment L by 1
+- after iteration, return 0 if length == float("inf") else length
+
+pseudo:
+L, currSum = 0, 0
+length = float("inf")
+
+for R in range(len(nums)):
+    currSum += nums[R]
+    while currSum >= target:
+        length = min(length, R - L + 1)
+        currSum -= nums[L]
+        L += 1
+
+return 0 if length == float("inf") else length
+
