@@ -55,3 +55,6 @@ for R in range(len(nums)):
     window.add(nums[R])
 
 return False
+
+time: o(n), 1 pass
+space: o(1), even if we did create hashset, this allocation takes a max of k items at all times, CONSTANT
