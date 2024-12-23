@@ -1,0 +1,49 @@
+Two Pointers
+
+Concept: 
+Have pointers L and R, can be at any index in a given arr.
+Increment L until specific cond
+Decrement R until specific cond
+
+Question:
+Check if palindrome
+
+L = 0
+R = len(string) - 1
+
+while L < R: # can never pass each other, would make no sense
+    if str[L] != str[R]:
+        return False
+    # dont forget to increment / Decrement variables
+    L += 1
+    R -= 1
+
+return True
+
+time: o(n), since checking each index in string
+space: o(1), no extra memory allocated
+
+Question: Given a sorted input arr, return two indices of two elements
+that sum up to target val. Assume ONLY ONE solution.
+
+Given:
+- sorted arr * hint on sorted *
+- return indices of vals
+- the vals at indices must be == to target, guaranteed one solution
+
+Intuition:
+- what if greater or smaller than target?
+- since its sorted, if its greater, the curren indices cannot be any smaller given constraint of iteration
+- hence, if greater, we must decrement R pointer
+- likewise, if too small with current L and R pointer vals, cannot be any greater with smallest val, so move L pointer
+
+L = 0
+R = len(arr) - 1
+
+while L < R:
+    if arr[L] + arr[R] > target:
+        R -= 1
+    elif arr[L] + arr[R] < target:
+        L += 1
+    else:
+        return [L, R] # valid for one solu
