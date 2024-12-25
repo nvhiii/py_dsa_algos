@@ -1,1 +1,12 @@
 Prefix Sums
+
+1. calc prefix or postfix constraint arr first, only calculated once, so o(n) space is omitted
+2. then iterate until we fulfill the result to return constraint problem
+
+arr = []
+total = 0
+for n in arr:
+    total += n # can be any operation
+    arr.append(total)
+
+# then we can freely calc the sum diff prod quotient, etc
