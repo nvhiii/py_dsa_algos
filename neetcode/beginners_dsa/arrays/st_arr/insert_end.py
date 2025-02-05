@@ -1,3 +1,7 @@
-def insert_end(arr, n, length, capacity):
-    if length < capacity: # if num of nums less than the avail space
-        arr[length] = n # we can do index of length, bc indexing starts at 0
+def insert_end(arr, length, capacity, element):
+    # in static arr, u must ensure that length/size isnt greater than capacity, or will get error
+    if length < capacity:
+        arr[length] = element
+
+    # length = number of elements, think of it as size
+    # capacity = max amt to hold for this arry
