@@ -1,47 +1,41 @@
-# Definition for a pair.
-# class Pair:
-#     def __init__(self, key: int, value: str):
-#         self.key = key
-#         self.value = value
-class Solution:
-    def mergeSort(self, pairs: List[Pair]) -> List[Pair]:
-        return self.mergeSort_helper(pairs, 0, len(pairs) - 1)
+def merge_sort(arr, s, e):
+    if e - s + 1 <= 1:
+        return arr # this is the base case, where the arr length is 1
 
-    def mergeSort_helper(self, pairs: List[Pair], s, e):
-        if e - s + 1 <= 1:
-            return pairs
+    # now we will calc middle index and split arr into smaller subprobs until base case(s)
+    mid = (s + e) // 2
+    merge_sort(arr, s, mid)
+    merge_sort(arr, mid + 1, e)
+    merge(arr, s, mid, e)
 
-        mid_idx = (s + e) // 2
-        self.mergeSort_helper(pairs, s, mid_idx)
-        self.mergeSort_helper(pairs, mid_idx + 1, e)
+    return arr # eventually returns the whole arr, after popping all the recursive calls off the stack
 
-        self.merge(pairs, s, mid_idx, e)
+def merge(arr, s , m, e):
+    L = arr[s : m + 1]
+    R = arr[m + 1 : e + 1]
 
-        return pairs
+    i = 0
+    j = 0
+    k = s # this pointer to the parent array to rearrange elements isnt 0, because some arrays dont start at start of the array!
 
-    def merge(self, pairs: List[Pair], start, middle, end):
-        L = pairs[start : middle + 1]
-        R = pairs[middle + 1 : end + 1]
-
-        i = 0 # tracks idx of L
-        j = 0 # tracks idx of R
-        k = start # tracks relevant start idx of arr
-
-        while i < len(L) and j < len(R):
-            if L[i].key <= R[j].key: # this is relative order conscious
-                pairs[k] = L[i]
-                i += 1
-            else:
-                pairs[k] = R[j]
-                j += 1
-            k += 1 # k will increment with both cases
-
-        # if one arr longer than the other, need to exhaust it
-        while i < len(L):
-            pairs[k] = L[i]
+    while i < len(L) and j < len(R):
+        if L[i] <= R[j]:
+            arr[k] = L[i]
             i += 1
-            k += 1
-        while j < len(R):
-            pairs[k] = R[j]
+        else:
+            arr[k] = R[j]
             j += 1
-            k += 1
+        k += 1
+
+    while i < len(L):
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < len(R):
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+if __name__ == "__main__":
+    arr = [5, 4, 3, 2, 1]
+    print(merge_sort(arr, 0, len(arr) - 1))
