@@ -1,28 +1,27 @@
-def quicksort(arr, s, e):
-    if e - s + 1 <= 1:
-        return arr
-    
-    # pivot and left pointers
-    pivot = arr[e]
-    left = s
+def quicksort(arr):
+    return qs(arr, 0, len(arr) - 1)
 
-    # iter for less
-    for i in range(s, e):
+def qs(arr, start, end):
+    if end - start + 1 <= 1:
+        return arr
+
+    pivot = arr[end]
+    left = start # this is the pointer that will go through the arr, eventually signifying
+    # end of the all the vals less than the value of pivot
+
+    for i in range(start, end):
         if arr[i] < pivot:
-            arr[i], arr[left] = arr[left], arr[i] # swap
+            arr[left], arr[i] = arr[i], arr[left]
             left += 1
 
-    # left has another number, need to swap w end
-    arr[e] = arr[left]
-    arr[left] = pivot # place pivot in right place
+    arr[end] = arr[left]
+    arr[left] = pivot
 
-    # left
-    quicksort(arr, s, left - 1)
-    
-    # right
-    quicksort(arr, left + 1, e)
+    qs(arr, start, left - 1)
+    qs(arr, left + 1, end)
 
     return arr
 
-nums = [5, 4, 3, 1, 2]
-print(quicksort(nums, 0, len(nums) - 1))
+if __name__ == "__main__":
+    arr = [5, 4, 3, 2, 1]
+    print(quicksort(arr))
