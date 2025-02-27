@@ -1,18 +1,18 @@
 def bucket_sort(arr):
-    counts = [0] * len(set(arr))
+    # do a count
+
+    counts = [0] * len(set(arr)) # (1, 1, 2, 3, 4, 5) = 1,2,3,4,5 = len5
     for num in arr:
         counts[num] += 1
 
-    # if larger numbers, better to use hashmap, this is a very simple example
-    # or use a tuple, usually hm better
-
-    i = 0 # iterate in the counts
-    for n in range(len(counts)):
-        for _ in range(counts[n]): # this iterates n times for 1 iteration of outer loop
-            arr[i] = n
+    i = 0
+    for j in range(len(counts)):
+        for _ in range(counts[j]):
+            arr[i] = j
             i += 1
 
     return arr
 
-my_nums = [0, 1, 2, 2, 2, 1, 0, 2, 1]
-print(bucket_sort(my_nums))
+if __name__ == "__main__":
+    arr = [4, 3, 2, 1, 0] # important is the fact that i havent figured out how to do this with arr starting at non-zero
+    print(bucket_sort(arr))
