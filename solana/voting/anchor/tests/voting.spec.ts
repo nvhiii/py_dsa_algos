@@ -106,10 +106,11 @@ describe('voting', () => {
 
   it('Vote', async () => {
 
+    // example of what instruction should be like
     await votingProgram.methods.vote(
       "Smooth",
       new anchor.BN(1),
-    ).rpc();
+    ).rpc(); // here, we are not using actual persons pubkey, but as rpc call!
 
     const [smoothAddress] = PublicKey.findProgramAddressSync(
       [new anchor.BN(1).toArrayLike(Buffer, 'le', 8), Buffer.from("Smooth")],
