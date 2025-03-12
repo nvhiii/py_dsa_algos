@@ -1,16 +1,13 @@
-def countStudents(self, students, sandwiches):
-        """
-        :type students: List[int]
-        :type sandwiches: List[int]
-        :rtype: int
-        """
-        result = len(students) # returned value to see which students cannot eat
-        c = Counter(students)
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        pref = Counter(students) # their preferences list
+        res = len(students)
 
-        for s in sandwiches: # we iterate the sandwiches, bc order does matter here
-            if c[s] > 0:
-                result -= 1 # num of students decrease bc at least 1 student can eat this sandwich
-                c[s] -= 1 # decrease the counter for the specified student
+        for s in sandwiches:
+            if pref[s] > 0:
+                pref[s] -= 1
+                res -= 1
             else:
-                return result # meaning not a single student can eat the sandwwich
-        return result
+                return res
+
+        return res # in the case all sandwiches are eaten
