@@ -1,39 +1,22 @@
-from collections import deque
-
-class MyStack(object):
+class MyStack:
 
     def __init__(self):
-        self.q = deque()
+        self.stack = deque()
 
-    def push(self, x):
-        """
-        :type x: int
-        :rtype: None
-        """
-        self.q.append(x) # o(1) operation, keep in mind queue is fifo meaning first item added is removed first, stack is lifo meaning last item added is removed first
-    
-    def pop(self):
-        """
-        :rtype: int
-        """
-        # since we are storing using a deque, we do fifo, but we need to reorganize the entire queue to make last item the first item since stack needs to remove last item, which in this case will need to be first
-        for _ in range(len(self.q) - 1): # iterate until right before last element
-            self.push(self.q.popleft()) # [1, 2, 3] -> since queue is popleft, we pop first 2 since iter until right before last element -> [2, 3, 1] -> [3, 2, 1]
-        return self.q.popleft() # after reversing
-        
-    def top(self):
-        """
-        :rtype: int
-        """
-        if not self.empty():
-            return self.q[-1]
-        
+    def push(self, x: int) -> None:
+        self.stack.append(x)
 
-    def empty(self):
-        """
-        :rtype: bool
-        """
-        return not self.q
+    def pop(self) -> int:
+        for _ in range(0, len(self.stack) - 1):
+            self.push(self.stack.popleft()) # puts the front vals to end of queue
+        return self.stack.popleft()
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def empty(self) -> bool:
+        return len(self.stack) == 0
+
 
 # Your MyStack object will be instantiated and called as such:
 # obj = MyStack()
