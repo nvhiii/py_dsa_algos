@@ -10,6 +10,8 @@ def merge_sort(arr, s, e):
 
     return arr # eventually returns the whole arr, after popping all the recursive calls off the stack
 
+
+# would it be more efficient to use pointers instead of creating new arrays?
 def merge(arr, s , m, e):
     L = arr[s : m + 1]
     R = arr[m + 1 : e + 1]
