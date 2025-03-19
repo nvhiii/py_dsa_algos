@@ -25,3 +25,5 @@ def qs(arr, start, end):
 if __name__ == "__main__":
     arr = [5, 4, 3, 2, 1]
     print(quicksort(arr))
+
+# adding more hard coded tests into main
