@@ -23,3 +23,5 @@ def quick_sort(arr, s, e):
 
 nums = [4, 5, 3, 1, 2]
 print(quick_sort(nums, 0, len(nums) - 1))
+
+# adding more hard coded tests into main
